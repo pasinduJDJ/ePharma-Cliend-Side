@@ -1,4 +1,9 @@
 .header-img {
+    width: 400px;
+    max-width: 400px; 
+    height: auto; 
+}
+.header-img1 {
     width: 300px;
     max-width: 300px; 
     height: auto; 
