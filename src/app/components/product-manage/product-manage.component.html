@@ -1,2 +1,73 @@
-<p>product-manage works!</p>
-<app-single-product></app-single-product>
+<div class="container">
+    <div class="container  my-5">
+        <div class="row text-center">
+            <div class="col">
+                <p class="header-text" style="line-height: 1.2; font-size: 2rem;">Product Mange Dashboard</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-outer col-8">
+            <div class="form">
+                <form>
+                    <h6>Product Manage Form</h6>
+                    <div class="textfi" for="productname">Product name</div>
+                    <input type="text" class="box" id="productname" formControlName="productName">
+                    <div class="textfi" for="productprice">Product price</div>
+                    <input type="number" class="box" id="productprice" formControlName="productPrice">
+                    <div class="textfi" for="productimage">Product image</div>
+                    <input type="text" class="box" id="productimage" formControlName="productImageURL">
+                    <div class="textfi" for="productdetails">Product Description</div>
+                    <input type="text" class="box" id="productdetails" formControlName="productDetails">
+                    <div class="textfi" for="productbenifits">Product Benifits</div>
+                    <input type="text" class="box" id="productbenifits" formControlName="productbenifits">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary px-5" type="submit">Submit</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-warning px-5" type="submit">Clear </button>
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container pb-5">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Benifits</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>001</td>
+                    <td>Amoxicillin</td>
+                    <td>A penicillin antibiotic, used to treat bacterial infections, such as chest infections</td>
+                    <td>The usual amoxicillin capsule dose is 250mg to 500mg, taken 3 times a day.</td>
+                    <td>39</td>
+                    <td>""</td>
+                    <td><button type="submit" class="btn btn-warning">Update</button></td>
+                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-footer></app-footer>

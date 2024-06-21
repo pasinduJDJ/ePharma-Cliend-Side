@@ -9,30 +9,30 @@
         <div class="collapse navbar-collapse header-center" id="navbarNav">
             <ul class="navbar-nav mx-auto navi-header-text">
                 <li class="nav-item mx-3">
-                    <a routerLink="/home" class="nav-link ">Home</a>
+                    <a routerLink="/home" routerLinkActive="active" class="nav-link ">Home</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/product" class="nav-link">Product</a>
+                    <a routerLink="/product" routerLinkActive="active" class="nav-link">Product</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/services" class="nav-link ">Services</a>
+                    <a routerLink="/services" routerLinkActive="active" class="nav-link ">Services</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/aboutus" class="nav-link ">About Us</a>
+                    <a routerLink="/aboutus" routerLinkActive="active" class="nav-link ">About Us</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/order" class="nav-link ">Order</a>
+                    <a routerLink="/order" routerLinkActive="active" class="nav-link ">Order</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/productmanage" class="nav-link ">Product Manage</a>
+                    <a routerLink="/productmanage" routerLinkActive="active" class="nav-link ">Product Manage</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/ordermanage" class="nav-link ">Order Manage</a>
+                    <a routerLink="/ordermanage" routerLinkActive="active" class="nav-link ">Order Manage</a>
                 </li>
             </ul>
         </div>
         <div class="header-right mx-3">
-            <button type="button" class="header-btn header-cart bg-transparent border-0">
+            <button type="button" class="header-btn header-cart bg-transparent border-0" (click)="openLogin()">
                 <img src="assets\svg\cart.svg" alt="" width="30" height="30">
                 <span class="cart-number"></span>
             </button>
