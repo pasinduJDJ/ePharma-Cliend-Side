@@ -19,6 +19,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
 import { ProductManageComponent } from './components/product-manage/product-manage.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SingleProductComponent } from './components/single-product/single-produ
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

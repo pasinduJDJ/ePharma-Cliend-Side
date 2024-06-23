@@ -7,37 +7,40 @@
         </div>
     </div>
     <div class="col">
-        <div class="form-outer col-8">
-            <div class="form">
-                <form>
-                    <h6>Product Manage Form</h6>
-                    <div class="textfi" for="productname">Product name</div>
-                    <input type="text" class="box" id="productname" formControlName="productName">
-                    <div class="textfi" for="productprice">Product price</div>
-                    <input type="number" class="box" id="productprice" formControlName="productPrice">
-                    <div class="textfi" for="productimage">Product image</div>
-                    <input type="text" class="box" id="productimage" formControlName="productImageURL">
-                    <div class="textfi" for="productdetails">Product Description</div>
-                    <input type="text" class="box" id="productdetails" formControlName="productDetails">
-                    <div class="textfi" for="productbenifits">Product Benifits</div>
-                    <input type="text" class="box" id="productbenifits" formControlName="productbenifits">
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn btn-primary px-5" type="submit">Submit</button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-warning px-5" type="submit">Clear </button>
-                        </div>
-                        <div class="col">
-
-                        </div>
-                    </div>
-
-                </form>
+      <div class="form-outer col-8">
+        <div class="form">
+          <form action="">
+            <div class="form-group py-2">
+              <input type="text" class="form-control" id="productname" aria-describedby="productname" placeholder="Product Name">
             </div>
+            <div class="form-group py-2">
+              <input type="text" class="form-control" id="productprice" aria-describedby="productprice" placeholder="Product Price">
+            </div>
+            <div class="form-group py-2">
+              <input type="text" class="form-control" id="productimageurl" aria-describedby="productimageurl" placeholder="Product ImageURL">
+            </div>
+            <div class="form-group py-2">
+              <input type="text" class="form-control" id="productdetails" aria-describedby="productdetails" placeholder="Product Details">
+            </div>
+            <div class="form-group pt-2 pb-4">
+              <input type="text" class="form-control" id="productbenefits" aria-describedby="productbenefits" placeholder="Product Benefits">
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="btn btn-primary px-5" type="submit">Add</button>
+              </div>
+              <div class="col">
+                <button class="btn btn-success px-5" type="button" >Update</button>
+              </div>
+              <div class="col">
+                <button class="btn btn-warning px-5" type="button" >Clear</button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-
+    
 </div>
 <div class="container pb-5">
     <div>
