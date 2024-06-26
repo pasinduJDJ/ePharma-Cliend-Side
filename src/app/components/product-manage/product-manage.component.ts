@@ -31,7 +31,7 @@ export class ProductManageComponent {
       name: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       benefits: new FormControl('', [Validators.required]),
-      image_url: new FormControl(''),
+      image_url: new FormControl('',[Validators.required]),
       price: new FormControl('', [Validators.required]),
     });
     this.productService.selectedProduct.subscribe(product => {

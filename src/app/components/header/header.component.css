@@ -7,3 +7,18 @@
     color: #0B254B;
     font-weight: bold;
 }
+.sidebar-slider.sidebar-slide-in {
+    transform: translateX(0%);
+    transition: ease-in-out 600ms transform;
+}
+
+.sidebar-slider {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0B254B;
+    transform: translateX(100%);
+    transition: ease-in-out 300ms transform;
+    z-index: 99999999;
+}
