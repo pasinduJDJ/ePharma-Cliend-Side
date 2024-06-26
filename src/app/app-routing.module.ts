@@ -29,6 +29,7 @@ const routes: Routes = [
   {path: 'paymentselect', component: PaymentMethodSelectScreenComponent},
   {path: 'cardpayment', component: PaymentCardPaymentComponent},
   {path: 'paymentSuccessfull', component: PaymentSuccessfullScreenComponent},
+  {path: 'selectPaymentMethod/:data', component:PaymentMethodSelectScreenComponent},
   
 ];
 

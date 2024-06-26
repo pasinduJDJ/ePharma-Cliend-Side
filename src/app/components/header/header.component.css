@@ -7,6 +7,9 @@
     color: #0B254B;
     font-weight: bold;
 }
+
+
+/* Slid Bar  */
 .sidebar-slider.sidebar-slide-in {
     transform: translateX(0%);
     transition: ease-in-out 600ms transform;
