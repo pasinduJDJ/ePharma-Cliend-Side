@@ -5,7 +5,6 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ProductpageComponent } from './components/productpage/productpage.component';
 import { ServicesComponent } from './components/services/services.component';
 import { OrderManageComponent } from './components/order-manage/order-manage.component';
-import { OrderComponent } from './components/order/order.component';
 import { ProductManageComponent } from './components/product-manage/product-manage.component';
 import { SignInPageComponent } from './components/sign-in-page/sign-in-page.component';
 import { SignUpPageComponent } from './components/sign-up-page/sign-up-page.component';
@@ -15,6 +14,7 @@ import { PaymentSuccessfullScreenComponent } from './components/payment-successf
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -23,7 +23,6 @@ const routes: Routes = [
   {path: 'product', component: ProductpageComponent},
   {path: 'services', component: ServicesComponent},
   {path: 'ordermanage', component: OrderManageComponent},
-  {path: 'order', component: OrderComponent},
   {path: 'productmanage', component: ProductManageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
@@ -32,6 +31,7 @@ const routes: Routes = [
   {path: 'paymentSuccessfull', component: PaymentSuccessfullScreenComponent},
   {path: 'singleProduct/:product_id', component: SingleProductComponent},
   {path: 'selectPaymentMethod/:data', component:PaymentMethodSelectScreenComponent},
+  {path: 'orders', component:OrdersComponent},
   
 ];
 

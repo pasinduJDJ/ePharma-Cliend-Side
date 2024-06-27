@@ -16,7 +16,6 @@ import { ServicesComponent } from './components/services/services.component';
 import { OrderManageComponent } from './components/order-manage/order-manage.component';
 import { CartitemComponent } from './components/cartitem/cartitem.component';
 import { CartComponent } from './components/cart/cart.component';
-import { OrderComponent } from './components/order/order.component';
 import { ProductManageComponent } from './components/product-manage/product-manage.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { BabyCareComponent } from './components/baby-care/baby-care.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +41,12 @@ import { BabyCareComponent } from './components/baby-care/baby-care.component';
     OrderManageComponent,
     CartitemComponent,
     CartComponent,
-    OrderComponent,
     ProductManageComponent,
     SingleProductComponent,
     RegisterPageComponent,
     LoginPageComponent,
     BabyCareComponent,
+    OrdersComponent
     
   ],
   imports: [
