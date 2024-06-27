@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,39 +8,44 @@ export class CartService {
 
   constructor() { }
 
-  productList:any[] = [];
-  cartItems:EventEmitter<any[]> = new EventEmitter();
-  totalAmount:EventEmitter<Object> = new EventEmitter();
-  totalPrice:number = 0
-  cartTotal:EventEmitter<number> = new EventEmitter();
+  productList: any[] = [];
+  cartItems: EventEmitter<any[]> = new EventEmitter();
+  totalAmount: EventEmitter<Object> = new EventEmitter();
+  totalPrice: number = 0
+  cartTotal: EventEmitter<number> = new EventEmitter();
 
-  etTotalPrice(total:number){
+  cartSideBarOpen:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  etTotalPrice(total: number) {
     this.totalPrice = total;
     this.cartTotal.emit(total);
   }
 
-  async getCartItems(){
+  async getCartItems() {
     let items: any[] = [];
-    await this.cartItems.subscribe(cartItems=>{
-      
-            items= cartItems;
-      })
+    await this.cartItems.subscribe(cartItems => {
+
+      items = cartItems;
+    })
     return items;
   }
 
-  modifyTotal(object:Object){
+  modifyTotal(object: Object) {
     this.totalAmount.emit(object);
   }
 
   addToCart(product: any) {
-    if (this.productList.filter(prod => prod.id == product.id).length > 0) {
+    if (this.productList.filter(prod => prod.product_id == product.product_id).length > 0) {
       this.toggleQty(product.id, true);
     } else {
       this.modifyTotal({
         "totalAmount": product.productPrice,
         "isIncrement": true,
       });
-      product.boughtQty += 1;
+      if (product.boughtQty == undefined)
+        product.boughtQty = 1;
+      else
+        product.boughtQty += 1;
       this.productList.push(product);
       this.cartItems.emit(this.productList);
     }
@@ -73,6 +79,14 @@ export class CartService {
   clear() {
     this.cartItems.emit([]);
     this.cartTotal.emit(0);
+  }
+
+  openCartSideBar() {
+    this.cartSideBarOpen.next(true);
+  }
+
+  closeCartSideBar() {
+    this.cartSideBarOpen.next(false);
   }
 
 }

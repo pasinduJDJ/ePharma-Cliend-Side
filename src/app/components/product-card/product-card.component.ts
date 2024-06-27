@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -11,6 +12,10 @@ export class ProductCardComponent implements OnInit {
     console.error("Image loading error:", event);
   }
   @Input('product') product: any;
+
+  constructor(
+    public cartService: CartService
+  ) { }
 
   ngOnInit(): void { }
 

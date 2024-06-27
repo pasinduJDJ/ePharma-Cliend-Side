@@ -53,7 +53,8 @@
             <button class="btn " style="border-radius: 50px;" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="header-right mx-3">
-            <button type="button" class="header-btn header-cart bg-transparent border-0" (click)="sidebarShow = !sidebarShow" >
+            <p class="header-right-cart-count">{{this.cartItemCount}}</p>
+            <button type="button" class="header-btn header-cart bg-transparent border-0" (click)="cartService.openCartSideBar()" >
                 <img src="assets\svg\cart.svg" alt="" width="30" height="30">
                 <span class="cart-number"></span>
             </button>
