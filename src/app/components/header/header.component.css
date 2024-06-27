@@ -1,13 +1,36 @@
 .navi-header-text li a:hover {
-    color: #0B254B;
+    color: #065FA8;
     font-weight: bold;
 }
 
 .navi-header-text li a.active {
-    color: #0B254B;
+    color: #065FA8;
     font-weight: bold;
 }
 
+
+/* top bar */
+.top-bar {
+    background-color: #065FA8;
+    color: white;
+    padding: 10px 0;
+}
+.top-bar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+.social-icons a {
+    color: white;
+    text-decoration: none;
+}
+.social-icons a:hover {
+    color: #ccc;
+}
 
 /* Slid Bar  */
 .sidebar-slider.sidebar-slide-in {

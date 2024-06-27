@@ -14,6 +14,7 @@ import { PaymentCardPaymentComponent } from './components/payment-card-payment/p
 import { PaymentSuccessfullScreenComponent } from './components/payment-successfull-screen/payment-successfull-screen.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { SingleProductComponent } from './components/single-product/single-product.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path: 'paymentselect', component: PaymentMethodSelectScreenComponent},
   {path: 'cardpayment', component: PaymentCardPaymentComponent},
   {path: 'paymentSuccessfull', component: PaymentSuccessfullScreenComponent},
+  {path: 'singleProduct/:product_id', component: SingleProductComponent},
   {path: 'selectPaymentMethod/:data', component:PaymentMethodSelectScreenComponent},
   
 ];

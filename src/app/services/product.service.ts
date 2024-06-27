@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
+  
+
   constructor(private httpClient: HttpClient) { }
 
   productList: Product[] = [];
@@ -40,6 +42,11 @@ export class ProductService {
   }
 
   url: string = "http://localhost:8081/products";
+
+  async getProductById(product_id: number) {
+    const url=this.url + "/" + product_id;
+    return this.httpClient.get(url)
+  }
 
   async updateProduct(product: any) {
 

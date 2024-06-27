@@ -1,10 +1,7 @@
-<div class="cardbox " >
+<div class="cardbox " [routerLink]="['/singleProduct', product.product_id]">
     <div class="cardimage-outer">
         <div class="cardimg ">
-            <!-- <img class="product-img" src={{product.image_url}}  > -->
-            <img class="product-img" [src]="product.image_url" alt="Card image cap" (error)="onImageLoadError($event)">
-
-            <!-- <img class="product-img" src="https://countrymedicalpharmacy.com/wp-content/uploads/2023/07/BIOVITA-123-2.jpg" alt="Card image cap" > -->
+            <img class="product-img" [src]="product.image_url || 'assets/images/R.png'" alt="Card image cap" (error)="onImageLoadError($event)">
         </div>
     </div> 
     <div class="card-details-outer">

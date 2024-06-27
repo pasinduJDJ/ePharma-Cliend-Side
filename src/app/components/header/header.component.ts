@@ -13,7 +13,8 @@ export class HeaderComponent implements OnInit {
   @ViewChild('sideCard') sideCard?: ElementRef;
 
   logOut() {
-    throw new Error('Method not implemented.');
+    this.userService.logOut();
+    this.router.navigate(['/home']);
   }
 
   constructor(

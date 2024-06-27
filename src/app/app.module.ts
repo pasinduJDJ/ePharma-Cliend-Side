@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { BabyCareComponent } from './components/baby-care/baby-care.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     ProductManageComponent,
     SingleProductComponent,
     RegisterPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    BabyCareComponent,
     
   ],
   imports: [
