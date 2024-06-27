@@ -12,6 +12,8 @@ export class OrderService {
   
   ordertList:Order[] =[];
   orders:EventEmitter<Order[]>=new EventEmitter();
+  selectOrder: EventEmitter<Order> = new EventEmitter();
+  refreshTable: EventEmitter<boolean> = new EventEmitter();
 
   async getOrders():Promise<Observable<Order[]>>{
     this.httpClient.get<Order[]>('http://localhost:8080/orders').subscribe(data=>{
@@ -19,6 +21,10 @@ export class OrderService {
    })
    
    return this.orders;
+  }
+
+  setSelectOrder(selectOrder:Order){
+    this.selectOrder.emit(selectOrder);
   }
   async addOrder(order:Order){
     this.httpClient.post('http://localhost:8080/orders',{
@@ -38,8 +44,16 @@ export class OrderService {
   }
 
   url:string="http://localhost:8080/orders";
+
   async deleteOrder(id:number){
     const url=this.url+"/"+id;
     return this.httpClient.delete<Order>(url).subscribe(data=>{console.log(data);});
+  }
+
+  async updateOrder(order: any) {
+    return await this.httpClient.put<Order>(this.url, order).subscribe(data => {
+      this.selectOrder.emit(undefined);
+      this.refreshTable.emit(true);
+    });
   }
 }

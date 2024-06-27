@@ -5,4 +5,5 @@ export interface Product {
     image_url:string;
     name: string;
     price:number;
+    category:string;
 }

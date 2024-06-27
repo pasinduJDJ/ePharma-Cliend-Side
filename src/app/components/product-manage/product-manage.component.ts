@@ -33,6 +33,7 @@ export class ProductManageComponent {
       benefits: new FormControl('', [Validators.required]),
       image_url: new FormControl('',[Validators.required]),
       price: new FormControl('', [Validators.required]),
+      category: new FormControl('', [Validators.required]),
     });
     this.productService.selectedProduct.subscribe(product => {
       this.selectedProduct = product;
@@ -42,7 +43,7 @@ export class ProductManageComponent {
       this.addProductForm!.controls['benefits'].setValue(product.benefits);
       this.addProductForm!.controls['image_url'].setValue(product.image_url);
       this.addProductForm!.controls['price'].setValue(product.price);
-
+      this.addProductForm!.controls['category'].setValue(product.category);
     })
   }
 

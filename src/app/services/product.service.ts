@@ -8,8 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  
-
   constructor(private httpClient: HttpClient) { }
 
   productList: Product[] = [];

@@ -6,12 +6,12 @@
         </div>
         <div class="social-icons pe-5">
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a>
+            <a href="mailto:epharama@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg bg-light sticky-top  p-4">
+<nav class="navbar container-fluid navbar-expand-lg bg-light sticky-top  p-4">
     
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html"><img src="assets/images/Logo 1.png" width="100px"
@@ -32,7 +32,7 @@
                     <a routerLink="/services" routerLinkActive="active" class="nav-link ">Services</a>
                 </li>
                 <li class="nav-item mx-3">
-                    <a routerLink="/aboutus" routerLinkActive="active" class="nav-link ">About Us</a>
+                    <a routerLink="/aboutus" routerLinkActive="active" class="nav-link ">AboutUs</a>
                 </li>
                 <li class="nav-item mx-3">
                     <a *ngIf="isLoggedIn && isUser" routerLink="/orders" routerLinkActive="active" class="nav-link ">Orders</a>
@@ -49,7 +49,7 @@
             </ul>
         </div>
         <form class="d-flex mx-3">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="border-radius: 20px;">
+            <input class="form-control " type="search" placeholder="Search" aria-label="Search" style="border-radius: 20px;">
             <button class="btn " style="border-radius: 50px;" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <div class="header-right mx-3">
