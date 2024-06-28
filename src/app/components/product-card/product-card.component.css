@@ -17,8 +17,8 @@
     
 }
 .cardimg{
-    width: 95%;
-    height: 100%;
+    height: 180px;
+    width: auto;
     border-radius: 20px;
     display: flex;
     align-items: center;

@@ -24,6 +24,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { BabyCareComponent } from './components/baby-care/baby-care.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { PurchesProductComponent } from './components/purches-product/purches-product.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     RegisterPageComponent,
     LoginPageComponent,
     BabyCareComponent,
-    OrdersComponent
+    OrdersComponent,
+    PurchesProductComponent
     
   ],
   imports: [

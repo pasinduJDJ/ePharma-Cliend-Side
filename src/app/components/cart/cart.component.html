@@ -1,19 +1,13 @@
-<div class="col col-4 stack-cart-box pt-2">
-    <div class="row ps-5 py-2">
-        <div class="col">
-            <button class="bg-transparent border-0 px-2">
-                <i class="fa-solid fa-arrow-left text-white"></i>
-            </button>
-        </div>
-        <div class="col">
-            <p class="fw-bold fs-5 text-white">Cart</p>
-        </div>
-        <div class="col">
-            <i class="fa-solid fa-cart-shopping text-white"></i>
-        </div>
+<div class="stack-cart-box pt-2">
+    <div class="d-flex justify-content-between align-items-center px-3 py-2">
+        <button class="bg-transparent border-0 px-2"  (click)="cartService.closeCartSideBar()">
+            <i class="fa-solid fa-arrow-left text-white"></i>
+        </button>
+        <div class="fw-bold fs-5 text-white mb-0">Cart</div>
+        <i class="fa-solid fa-cart-shopping text-white"></i>
     </div>
 
-    <div class="row stack-item-outer d-flex ">
+    <div class="row stack-item-outer py-3">
         <app-cartitem></app-cartitem>
         <app-cartitem></app-cartitem>
     </div>

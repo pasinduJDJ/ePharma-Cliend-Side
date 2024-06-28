@@ -17,7 +17,7 @@ export class OrderManageComponent implements OnInit {
   orders: Order[] = [];
   payments: Payment[] = [];
 
-  constructor(private orderService: OrderService,private paymentService: PaymentService, private fb: FormBuilder) { }
+  constructor(private orderService: OrderService, private paymentService: PaymentService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
@@ -58,6 +58,7 @@ export class OrderManageComponent implements OnInit {
     this.paymentService.getPayment().then(payment => {
       payment.subscribe(payment => {
         this.payments = payment;
+        console.log(payment)
       })
     })
   }
@@ -101,4 +102,18 @@ export class OrderManageComponent implements OnInit {
     },)
   }
 
+  deletePayment(payment: Payment) {
+    this.paymentService.deletePayment(payment.payment_id).then(data => {
+      this.loadPayments();
+    },)
+  }
+  loadPayments() {
+    this.paymentService.getPayment().then(payment => {
+      payment.subscribe(payment => {
+        this.payments = payment;
+      })
+    })
+  }
+
+  
 }

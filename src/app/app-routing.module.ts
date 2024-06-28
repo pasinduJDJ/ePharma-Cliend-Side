@@ -15,6 +15,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { PurchesProductComponent } from './components/purches-product/purches-product.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'singleProduct/:product_id', component: SingleProductComponent},
   {path: 'selectPaymentMethod/:data', component:PaymentMethodSelectScreenComponent},
   {path: 'orders', component:OrdersComponent},
+  {path: 'purchesProduct/:user_id', component:PurchesProductComponent},
   
 ];
 

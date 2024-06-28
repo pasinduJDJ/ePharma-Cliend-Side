@@ -1,6 +1,6 @@
-<div class="cardbox " [routerLink]="['/singleProduct', product.product_id]">
-    <div class="cardimage-outer">
-        <div class="cardimg ">
+<div class="cardbox " >
+    <div class="cardimage-outer ">
+        <div class="cardimg " [routerLink]="['/singleProduct', product.product_id]">
             <img class="product-img" [src]="product.image_url || 'assets/images/R.png'" alt="Card image cap" (error)="onImageLoadError($event)">
         </div>
     </div> 
@@ -12,6 +12,6 @@
     </div> 
      
     <div class="add-card-outer">
-        <a href="#" class="btn btn-outline-dark mb-3 d-block " ><i class="fas fa-cart-shopping me-2"></i>Add to Cart</a>
+        <button (click)="cartService.addToCart(product)" class="btn btn-outline-dark mb-3 d-block " ><i class="fas fa-cart-shopping me-2"></i>Add to Cart</button>
     </div> 
 </div>

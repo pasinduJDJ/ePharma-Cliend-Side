@@ -14,6 +14,7 @@
                     <th>Order ID</th>
                     <th>Order Details</th>
                     <th>Payment Method</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,8 +23,9 @@
                     <td>{{payment.order_no}}</td>
                     <td>{{payment.order_details}}</td>
                     <td>{{payment.pay_method}}</td>
+                    <td><button type="submit" class="btn text-warning" (click)="deletePayment(payment)" >Update</button>
                 </tr>
-            </tbody>s
+            </tbody>
         </table>
     </div>
 </div>
@@ -36,6 +38,36 @@
             </div>
         </div>
     </div>
+
+    <div class="row mt-5">
+        <div class="col-12 ">
+            <div class="form-outer">
+                <div class="form">
+                    <form [formGroup]="updateOrderForm!" (submit)="addOrder()">
+                        <p class="fs-4 fw-bold">Order Status Update</p>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" formControlName="date" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control" formControlName="status" placeholder="Status">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary px-5" type="submit">Submit</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div>
         <table>
             <thead>
@@ -60,36 +92,13 @@
                     <td>{{order.location}}</td>
                     <td>{{order.date}}</td>
                     <td>{{order.status}}</td>
-                    <td><button type="submit" class="btn btn-warning" (click)="updateOrder(order)">Update</button>
-                        <td><button type="submit" class="btn btn-danger" (click)="deleteOrder(order)">Update</button>
+                    <td><button type="submit" class="btn text-warning" (click)="updateOrder(order)">Update</button>
+                    <td><button type="submit" class="btn text-danger" (click)="deleteOrder(order)">Update</button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="row mt-5">
-            <div class="col-7 ">
-                <div class="form-outer col-8">
-                    <div class="form">
-                      <form [formGroup]="updateOrderForm!" (submit)="addOrder()">
-                        <p class="fs-4 fw-bold">Order Update Form</p>
-                        <div class="form-group py-2">
-                          <input type="text" class="form-control"  formControlName="date" placeholder="Date">
-                        </div>
-                        <div class="form-group py-2">
-                          <input type="text" class="form-control"  formControlName="status" placeholder="Status">
-                        </div>
-                        
-                        <div class="row">
-                          <div class="col">
-                            <button class="btn btn-primary px-5" type="submit" >Submit</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-            </div>
-        </div>
         
     </div>
 </div>
