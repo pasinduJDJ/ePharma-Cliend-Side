@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cartitem',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./cartitem.component.css']
 })
 export class CartitemComponent {
+  @Input() product: any;
+
+  constructor(public cartService:CartService) { }
 
 }

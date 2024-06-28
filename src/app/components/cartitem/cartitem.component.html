@@ -1,32 +1,26 @@
 
 
-<div class="box2 container align-items-center pt-3 ps-4 mt-3">
+<div class="box2 container align-items-center pt-3 px-4 mt-3">
     <div class="row">
         <div class="col-2 cartimg">
-            <img src="https://th.bing.com/th/id/R.d2eef5e4ed13f31b8aea35624a0780a8?rik=03xzgClcrWXvig&riu=http%3a%2f%2fwww.chemistwarehouse.com.au%2fimages%2fproductimages%2f6973%2foriginal_CW.jpg&ehk=drg%2bpux2PrR7nDrQdOiKNonFOQqThIN1110JmCfWm2U%3d&risl=&pid=ImgRaw&r=0"  alt=""  width="50px" height="50px">
+            <img [src]="product.imageUrl"  alt=""  width="50px" height="50px">
         </div>
-        <div class="col-4 align-items-center ps-4">
-            <div class="text-white medium">Panadol </div>
+        <div class="col-7 align-items-center ps-4">
+            <div class="text-white medium">{{product.name}} </div>
         </div>
-        <div class="col-5">
-            <div class="row mb-1">
-                <div class="col">
-                    <button class="bg-transparent border-0 text-white">
-                        -
-                    </button>
+        <div class="col-3">
+            <div class="d-flex mb-2">
+                <button class="cartminus bg-transparent border-0 text-white" (click)="cartService.toggleQty(product.product_id , false)">
+                    -
+                </button>
+                <div class="text-white mx-3">
+                    {{product.boughtQty}}
                 </div>
-                <div class="col text-white">
-                    Quantitiy
-                </div>
-                <div class="col ">
-                    <button class="bg-transparent border-0 text-white" >
-                        +
-                    </button>
-                </div>
+                <button class="cartplus bg-transparent border-0 text-white" (click)="cartService.toggleQty(product.product_id , true)" >
+                    +
+                </button>
             </div>
-            <div class="row d-flex ">
-                <div class="text-white small d-flex align-items-center justify-content-around">LKR 230</div>
-            </div>
+            <div class="text-white small d-flex align-items-center justify-content-end">LKR {{product.price}}</div>
         </div>
     </div>
     

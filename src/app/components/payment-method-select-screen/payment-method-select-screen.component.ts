@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-payment-method-select-screen',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class PaymentMethodSelectScreenComponent {
   selectedPaymentMethod: string = 'card';
+  constructor(public cartService: CartService) { }
 }

@@ -13,8 +13,9 @@ export class CartService {
   totalAmount: EventEmitter<Object> = new EventEmitter();
   totalPrice: number = 0
   cartTotal: EventEmitter<number> = new EventEmitter();
+  cartTotalPrice: number = 0;
 
-  cartSideBarOpen:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  cartSideBarOpen: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   etTotalPrice(total: number) {
     this.totalPrice = total;
@@ -36,10 +37,11 @@ export class CartService {
 
   addToCart(product: any) {
     if (this.productList.filter(prod => prod.product_id == product.product_id).length > 0) {
-      this.toggleQty(product.id, true);
+      this.toggleQty(product.product_id, true);
     } else {
+      this.cartTotalPrice += product.price;
       this.modifyTotal({
-        "totalAmount": product.productPrice,
+        "totalAmount": product.price,
         "isIncrement": true,
       });
       if (product.boughtQty == undefined)
@@ -52,8 +54,9 @@ export class CartService {
 
   }
   toggleQty(productId: number, isIncrement: boolean) {
-    let productItem = this.productList.filter(prod => prod.id == productId)[0];
-    let index = this.productList.findIndex(prod => prod.id == productId);
+    debugger
+    let productItem = this.productList.filter(prod => prod.product_id == productId)[0];
+    let index = this.productList.findIndex(prod => prod.product_id == productId);
 
     if (productItem.boughtQty == 0) {
       this.productList.splice(index, 1);
@@ -65,9 +68,13 @@ export class CartService {
           productItem.boughtQty -= 1;
         }
       }
-
+      if (isIncrement) {
+        this.cartTotalPrice += productItem.price;
+      } else {
+        this.cartTotalPrice -= productItem.price;
+      }
       this.modifyTotal({
-        "totalAmount": productItem.productPrice,
+        "totalAmount": productItem.price,
         "isIncrement": isIncrement,
       });
       this.productList[index] = productItem;
@@ -79,6 +86,9 @@ export class CartService {
   clear() {
     this.cartItems.emit([]);
     this.cartTotal.emit(0);
+    this.cartTotalPrice = 0;
+    this.productList = [];
+
   }
 
   openCartSideBar() {
