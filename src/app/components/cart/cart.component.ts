@@ -9,9 +9,10 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: any[] = [];
+
   constructor(
     public cartService: CartService,
-    private router:Router
+    private router: Router
   ) { }
   ngOnInit(): void {
     this.cartService.cartItems.subscribe(cartItems => {
@@ -21,8 +22,13 @@ export class CartComponent implements OnInit {
 
 
   checkout() {
+    let orderDetails = '';
+    this.cartItems.forEach(item => {
+      orderDetails += `${item.name}:${item.boughtQty} - `;
+    });
+    orderDetails = orderDetails.slice(0, -3);
     this.cartService.closeCartSideBar();
-    this.router.navigate(['/paymentselect']);
+    this.router.navigate(['/paymentselect'], { queryParams: { orderDetails } });
   }
 
 

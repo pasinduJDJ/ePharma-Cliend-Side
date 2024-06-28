@@ -25,6 +25,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { BabyCareComponent } from './components/baby-care/baby-care.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { PurchesProductComponent } from './components/purches-product/purches-product.component';
+import { PaymentMethodSelectScreenComponent } from './components/payment-method-select-screen/payment-method-select-screen.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PurchesProductComponent } from './components/purches-product/purches-pr
     LoginPageComponent,
     BabyCareComponent,
     OrdersComponent,
-    PurchesProductComponent
+    PurchesProductComponent,
+    PaymentMethodSelectScreenComponent,
     
   ],
   imports: [
