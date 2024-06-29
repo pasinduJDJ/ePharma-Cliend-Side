@@ -44,10 +44,19 @@ export class OrderService {
   }
 
   url:string="http://localhost:8080/orders";
+  urls:string="http://localhost:8080";
 
   async deleteOrder(id:number){
     const url=this.url+"/"+id;
     return this.httpClient.delete<Order>(url).subscribe(data=>{console.log(data);});
+  }
+
+  async getOrdersByUserId(user_id: number): Promise<Observable<Order[]>> {
+    const url=this.urls+"/orders?user_id="+user_id;
+    this.httpClient.get<Order[]>(url).subscribe(data=>{
+      this.orders.emit(data)
+    })
+    return this.orders;
   }
 
   async updateOrder(order: any) {

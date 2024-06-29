@@ -71,3 +71,11 @@ table th {
     background-color:#0B254B ;
     color: white;
 }
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    width: auto;
+  }

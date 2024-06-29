@@ -79,18 +79,59 @@ export class OrderManageComponent implements OnInit {
   }
 
   async addOrder() {
+    const alertPlaceholder = document.getElementById('alert-placeholder');
+
+    const showAlertWarning = (message: string, type: string) => {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = `
+      <i class="fa-solid fa-triangle-exclamation mx-4"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      `;
+      alertPlaceholder?.appendChild(alertDiv);
+
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(() => alertDiv.remove(), 150);
+      }, 3000);
+    };
+    const showAlertSuccess = (message: string, type: string) => {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = `
+      <i class="fa-solid fa-circle-check"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      `;
+      alertPlaceholder?.appendChild(alertDiv);
+
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(() => alertDiv.remove(), 150);
+      }, 3000);
+    };
+
     if (this.updateOrderForm?.invalid) {
-      alert("Please Check Form Again")
+      showAlertWarning("Please Fill Order Status and Date", "warning");
     } else {
       if (this.selectOrder == null || this.selectOrder == undefined) {
         await this.orderService.addOrder(this.updateOrderForm?.getRawValue()).then(result => {
           this.updateOrderForm?.reset();
-          alert("Product Added successfully");
+          showAlertWarning("Please Check Form Again", "warning");
         });
       } else {
         await this.orderService.updateOrder(this.updateOrderForm!.getRawValue()).then(result => {
           this.updateOrderForm?.reset();
-          alert("Product Update successfully");
+          showAlertSuccess("Order Status Update successfully", "success");
         });
       }
     }

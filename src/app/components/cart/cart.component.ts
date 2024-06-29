@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   checkout() {
     let orderDetails = '';
     this.cartItems.forEach(item => {
-      orderDetails += `${item.name}:${item.boughtQty} - `;
+      orderDetails += `${item.name}:${item.boughtQty} | `;
     });
     orderDetails = orderDetails.slice(0, -3);
     this.cartService.closeCartSideBar();

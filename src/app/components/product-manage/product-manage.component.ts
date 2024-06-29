@@ -57,18 +57,60 @@ export class ProductManageComponent {
 
   async addProduct() {
 
+    const alertPlaceholder = document.getElementById('alert-placeholder');
+
+    const showAlertWarning = (message: string, type: string) => {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = `
+      <i class="fa-solid fa-triangle-exclamation mx-4"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      `;
+      alertPlaceholder?.appendChild(alertDiv);
+
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(() => alertDiv.remove(), 150);
+      }, 3000);
+    };
+
+    const showAlertSuccess = (message: string, type: string) => {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = `
+      <i class="fa-solid fa-circle-check"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      `;
+      alertPlaceholder?.appendChild(alertDiv);
+
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(() => alertDiv.remove(), 150);
+      }, 3000);
+    };
+
     if (this.addProductForm?.invalid) {
-      alert("Please Check Form Again")
+      showAlertWarning("Please Fill All Product Details.", "warning");
     } else {
       if (this.selectedProduct == null || this.selectedProduct == undefined) {
         await this.productService.addProduct(this.addProductForm?.getRawValue()).then(result => {
           this.addProductForm?.reset();
-          alert("Product Added successfully");
+          showAlertSuccess("Product Added successfully", "success");
         });
       } else {
         await this.productService.updateProduct(this.addProductForm!.getRawValue()).then(result => {
           this.addProductForm?.reset();
-          alert("Product Update successfully");
+          showAlertSuccess("Product Update successfully", "success");
         });
       }
     }

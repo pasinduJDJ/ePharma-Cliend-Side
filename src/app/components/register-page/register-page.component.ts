@@ -32,15 +32,59 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSignup() {
+
+    const alertPlaceholder = document.getElementById('alert-placeholder');
+
+    const showAlertWarning = (message: string, type: string) => {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = `
+      <i class="fa-solid fa-triangle-exclamation mx-4"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      `;
+      alertPlaceholder?.appendChild(alertDiv);
+
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(() => alertDiv.remove(), 150);
+      }, 3000);
+    };
+
+    const showAlertSuccess = (message: string, type: string) => {
+      const alertDiv = document.createElement('div');
+      alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+      alertDiv.role = 'alert';
+      alertDiv.innerHTML = `
+      <i class="fa-solid fa-circle-check"></i>
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      `;
+      alertPlaceholder?.appendChild(alertDiv);
+
+      setTimeout(() => {
+        alertDiv.classList.remove('show');
+        alertDiv.classList.add('fade');
+        setTimeout(() => alertDiv.remove(), 150);
+      }, 3000);
+    };
+
+
     if (this.signUpForm?.invalid) {
-      alert("Please check the form again.");
+      showAlertWarning("Please Fill All Details.", "warning");
     }
     else if ((this.signUpForm?.controls['username'].value).toLowerCase() === "admin") {
       alert("Username should not be 'admin'. Please choose another username.");
     }else{
       this.userService.addUser(this.signUpForm?.getRawValue()).then(result => {
         this.signUpForm?.reset();
-        alert("User Register successfully");
+        showAlertSuccess("User Register successfully", "success");
       });
     }
   }
