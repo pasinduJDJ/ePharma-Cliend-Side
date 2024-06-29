@@ -78,6 +78,7 @@
                     <th>Ordered Products</th>
                     <th>Price</th>
                     <th>location</th>
+                    <th>Payment Method</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Update</th>
@@ -91,6 +92,7 @@
                     <td>{{order.productname}}</td>
                     <td>{{order.price}}</td>
                     <td>{{order.location}}</td>
+                    <td>{{order.pay_method}}</td>
                     <td>{{order.date}}</td>
                     <td>{{order.status}}</td>
                     <td><button type="submit" class="btn text-warning" (click)="updateOrder(order)">Update</button>

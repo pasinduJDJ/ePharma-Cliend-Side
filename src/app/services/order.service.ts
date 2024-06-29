@@ -36,7 +36,9 @@ export class OrderService {
       "status":order.status,
       "user_id":order.user_id,
       "username":order.username,
-
+      "pay_method":order.pay_method,
+      "tp":order.tp,
+      "email_address":order.email_address,
 
     }).subscribe(data=>{
       console.log(data);

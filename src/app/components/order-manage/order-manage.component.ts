@@ -41,6 +41,9 @@ export class OrderManageComponent implements OnInit {
       status: new FormControl('', [Validators.required]),
       user_id: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
+      pay_method: new FormControl('', [Validators.required]),
+      tp: new FormControl('', [Validators.required]),
+      email_address: new FormControl('', [Validators.required]),
     });
     this.orderService.selectOrder.subscribe(order => {
       this.selectOrder = order;
@@ -52,6 +55,9 @@ export class OrderManageComponent implements OnInit {
       this.updateOrderForm!.controls['status'].setValue(order.status);
       this.updateOrderForm!.controls['user_id'].setValue(order.user_id);
       this.updateOrderForm!.controls['username'].setValue(order.username);
+      this.updateOrderForm!.controls['pay_method'].setValue(order.pay_method);
+      this.updateOrderForm!.controls['tp'].setValue(order.tp);
+      this.updateOrderForm!.controls['email_address'].setValue(order.email_address);
     })
 
     // Payment Manage

@@ -80,7 +80,7 @@ export class RegisterPageComponent implements OnInit {
       showAlertWarning("Please Fill All Details.", "warning");
     }
     else if ((this.signUpForm?.controls['username'].value).toLowerCase() === "admin") {
-      alert("Username should not be 'admin'. Please choose another username.");
+      showAlertWarning("Username should not be 'admin'. Please choose another username.", "warning");
     }else{
       this.userService.addUser(this.signUpForm?.getRawValue()).then(result => {
         this.signUpForm?.reset();

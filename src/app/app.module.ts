@@ -27,6 +27,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { PurchesProductComponent } from './components/purches-product/purches-product.component';
 import { PaymentMethodSelectScreenComponent } from './components/payment-method-select-screen/payment-method-select-screen.component';
 import { CashOnDeliveryComponent } from './components/cash-on-delivery/cash-on-delivery.component';
+import { PaymentCardPaymentComponent } from './components/payment-card-payment/payment-card-payment.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CashOnDeliveryComponent } from './components/cash-on-delivery/cash-on-d
     OrdersComponent,
     PurchesProductComponent,
     PaymentMethodSelectScreenComponent,
-    CashOnDeliveryComponent
+    CashOnDeliveryComponent,
+    PaymentCardPaymentComponent
     
   ],
   imports: [
