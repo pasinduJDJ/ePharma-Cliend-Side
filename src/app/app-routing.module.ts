@@ -16,6 +16,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { PurchesProductComponent } from './components/purches-product/purches-product.component';
+import { CashOnDeliveryComponent } from './components/cash-on-delivery/cash-on-delivery.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,12 +29,13 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'register', component: RegisterPageComponent},
   {path: 'paymentselect', component: PaymentMethodSelectScreenComponent},
-  {path: 'cardpayment', component: PaymentCardPaymentComponent},
-  {path: 'paymentSuccessfull', component: PaymentSuccessfullScreenComponent},
+  { path: 'payment-card', component: PaymentCardPaymentComponent },
+  { path: 'payment-success', component: PaymentSuccessfullScreenComponent },
   {path: 'singleProduct/:product_id', component: SingleProductComponent},
   {path: 'selectPaymentMethod/:data', component:PaymentMethodSelectScreenComponent},
   {path: 'orders', component:OrdersComponent},
   {path: 'purchesProduct/:user_id', component:PurchesProductComponent},
+  {path: 'cash-on-delivery', component:CashOnDeliveryComponent},
   
 ];
 

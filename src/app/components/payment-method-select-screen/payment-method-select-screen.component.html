@@ -39,24 +39,40 @@
                 <div class="row  mb-3" style="width: 400px;">
                     <div class="container mt-3 radio-button-container  ">
                         <div class="form-check m-2">
-                            <input class="form-check-input custom-radio" type="radio" name="paymentMethod"
-                                id="cardPayment" value="card">
+                            <input 
+                              class="form-check-input custom-radio" 
+                              type="radio" 
+                              name="paymentMethod" 
+                              id="cardPayment" 
+                              value="card" 
+                              [(ngModel)]="selectedPaymentMethod" 
+                              checked
+                            >
                             <label class="form-check-label" for="cardPayment">
-                                Card Payment
+                              Card Payment
                             </label>
-                        </div>
-                        <div class="form-check m-2">
-                            <input class="form-check-input custom-radio" type="radio" name="paymentMethod"
-                                id="cashOnDelivery" value="cash">
+                          </div>
+                          <div class="form-check m-2">
+                            <input 
+                              class="form-check-input custom-radio" 
+                              type="radio" 
+                              name="paymentMethod" 
+                              id="cashOnDelivery" 
+                              value="cash" 
+                              [(ngModel)]="selectedPaymentMethod"
+                            >
                             <label class="form-check-label" for="cashOnDelivery">
-                                Cash On Delivery
+                              Cash On Delivery
                             </label>
-                        </div>
+                          </div>
+                          
+                          
                     </div>
                 </div>
 
                 <div class="row justify-content-end">
-                    <button class="btn btn-primary" style="width: 200px;">Go To Payment</button>
+                    <button class="btn btn-primary" style="width: 200px;" (click)="payScreen()">Go To Payment</button>
+
                 </div>
             </div>
         </div>
