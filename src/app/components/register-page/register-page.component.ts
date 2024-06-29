@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EmailService } from 'src/app/services/email.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterPageComponent implements OnInit {
 
   signUpForm?: FormGroup<any>;
 
-  constructor(private router: Router, private fb: FormBuilder, private userService: UserService) { }
+  constructor(private router: Router, private fb: FormBuilder, private userService: UserService, private emailService:EmailService) { }
 
   ngOnInit(): void {
 
@@ -31,7 +32,7 @@ export class RegisterPageComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  onSignup() {
+  async onSignup() {
 
     const alertPlaceholder = document.getElementById('alert-placeholder');
 
@@ -81,11 +82,14 @@ export class RegisterPageComponent implements OnInit {
     }
     else if ((this.signUpForm?.controls['username'].value).toLowerCase() === "admin") {
       showAlertWarning("Username should not be 'admin'. Please choose another username.", "warning");
-    }else{
+    } else {
       this.userService.addUser(this.signUpForm?.getRawValue()).then(result => {
         this.signUpForm?.reset();
         showAlertSuccess("User Register successfully", "success");
       });
+      await this.emailService.addUserEmail(this.signUpForm?.getRawValue()).then(result => {
+        this.signUpForm?.reset();
+      })
     }
   }
 

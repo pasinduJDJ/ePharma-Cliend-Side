@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-product-card',
@@ -14,10 +15,14 @@ export class ProductCardComponent implements OnInit {
   @Input('product') product: any;
 
   constructor(
-    public cartService: CartService
+    public cartService: CartService,
+    public userService:UserService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.userService.isLoggedIn;
+    this.userService.isUser;
+  }
 
 
 }

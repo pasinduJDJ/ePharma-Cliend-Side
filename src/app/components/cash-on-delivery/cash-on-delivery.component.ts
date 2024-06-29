@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { EmailService } from 'src/app/services/email.service';
 import { OrderService } from 'src/app/services/order.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class CashOnDeliveryComponent {
   pay_method: string = 'Cash On Delivery';
   userId!: number;
 
-  constructor(public cartService: CartService, private activeRoute: ActivatedRoute, private router: Router, private fb: FormBuilder, private orderService: OrderService) { }
+  constructor(public cartService: CartService, private activeRoute: ActivatedRoute, private router: Router, private fb: FormBuilder, private orderService: OrderService,private emailService:EmailService) { }
 
 
   ngOnInit(): void {
@@ -42,7 +43,7 @@ export class CashOnDeliveryComponent {
     });
   }
 
-  payNow(): void {
+  async payNow(): Promise<void> {
     const alertPlaceholder = document.getElementById('alert-placeholder');
 
     const showAlertWarning = (message: string, type: string) => {
@@ -89,11 +90,15 @@ export class CashOnDeliveryComponent {
       console.log(this.payNowForm?.getRawValue());
       showAlertWarning("Please fill all details correctly.", "warning");
     } else {
-      this.orderService.addOrder(this.payNowForm?.getRawValue()).then(result => {
+      this.orderService.addOrder(this.payNowForm?.getRawValue()).then(async result => {
         this.payNowForm?.reset();
         showAlertSuccess("Order added successfully.", "Success")
         this.router.navigate(['/payment-success']);
+        console.log(result);
       });
+      await this.emailService.addOrderEmail(this.payNowForm?.getRawValue()).then(result => {
+      });
+      
     }
   }
 }

@@ -1,40 +1,8 @@
-<div class="container">
-    <div class="container  mt-5">
-        <div class="row text-center">
-            <div class="col">
-                <p class="header-text" style="line-height: 1.2; font-size: 2rem;">Payment Details</p>
-            </div>
-        </div>
-    </div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Payment ID</th>
-                    <th>Order ID</th>
-                    <th>Order Details</th>
-                    <th>Payment Method</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let payment of payments">
-                    <td>{{payment.payment_id}}</td>
-                    <td>{{payment.order_no}}</td>
-                    <td>{{payment.order_details}}</td>
-                    <td>{{payment.pay_method}}</td>
-                    <td><button type="submit" class="btn text-warning" (click)="deletePayment(payment)" >Update</button>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
 <div class="container pb-5">
     <div class="container  mt-5">
         <div class="row text-center">
             <div class="col">
-                <p class="header-text" style="line-height: 1.2; font-size: 2rem;">Orders Mange Dashboard</p>
+                <p class="header-text" style="line-height: 1.2; font-size: 2rem;">Orders Manage Dashboard</p>
             </div>
         </div>
     </div>
@@ -96,7 +64,7 @@
                     <td>{{order.date}}</td>
                     <td>{{order.status}}</td>
                     <td><button type="submit" class="btn text-warning" (click)="updateOrder(order)">Update</button>
-                    <td><button type="submit" class="btn text-danger" (click)="deleteOrder(order)">Update</button>
+                    <td><button type="submit" class="btn text-danger" (click)="deleteOrder(order)">Delete</button>
                     </td>
                 </tr>
             </tbody>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Order } from 'src/app/models/order';
 import { Payment } from 'src/app/models/payment';
+import { EmailService } from 'src/app/services/email.service';
 import { OrderService } from 'src/app/services/order.service';
 import { PaymentService } from 'src/app/services/payment.service';
 
@@ -17,7 +18,7 @@ export class OrderManageComponent implements OnInit {
   orders: Order[] = [];
   payments: Payment[] = [];
 
-  constructor(private orderService: OrderService, private paymentService: PaymentService, private fb: FormBuilder) { }
+  constructor(private orderService: OrderService, private paymentService: PaymentService, private fb: FormBuilder, private emailService:EmailService) { }
 
   ngOnInit(): void {
 
@@ -139,6 +140,9 @@ export class OrderManageComponent implements OnInit {
           this.updateOrderForm?.reset();
           showAlertSuccess("Order Status Update successfully", "success");
         });
+        await this.emailService.updateOrder(this.updateOrderForm?.getRawValue()).then(result => {
+          this.updateOrderForm?.reset();
+        })
       }
     }
   }
