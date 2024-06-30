@@ -11,17 +11,17 @@ export class BabyCareComponent implements OnInit {
   constructor(private productService:ProductService) {}
   
   products:Product[] = [];
+  category: string = "Baby Care";
 
   async ngOnInit(){
-    await this.loadProducts();
+    await this.productList();
 
   }
 
-  async loadProducts() {
-    this.productService.getProducts().then(products => {
-      products.subscribe(products => {
-        this.products = products;
-      })
-    })
+  async productList(){
+    (await this.productService.getProductByCategory(this.category)).subscribe((products:any) =>{
+      console.log(products.product);
+      this.products = products;
+    });
   }
 }

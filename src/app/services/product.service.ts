@@ -40,9 +40,10 @@ export class ProductService {
   }
 
   url: string = "http://localhost:8081/products";
+  urls: string = "http://localhost:8081";
 
   async getProductById(product_id: number) {
-    const url=this.url + "/" + product_id;
+    const url = this.url + "/" + product_id;
     return this.httpClient.get(url)
   }
 
@@ -57,5 +58,10 @@ export class ProductService {
   async deleteProduct(id: number) {
     const url = this.url + "/" + id;
     return await this.httpClient.delete<Product>(url).subscribe(data => { console.log(data); });
+  }
+
+  getProductByCategory(category: string) {
+    const url = this.urls + "/products?category="+category;
+    return this.httpClient.get(url)
   }
 }
