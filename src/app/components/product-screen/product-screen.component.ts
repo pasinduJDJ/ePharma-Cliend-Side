@@ -9,21 +9,34 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductScreenComponent implements OnInit {
 
-  constructor(private productService:ProductService) {}
+  constructor(private productService:ProductService) {this.searchProductList = this.products;}
   
   products:Product[] = [];
+  searchProductList:any[]=[];
 
   async ngOnInit(){
     await this.loadProducts();
 
   }
 
-  async loadProducts() {
-    this.productService.getProducts().then(products => {
-      products.subscribe(products => {
-        this.products = products;
-      })
-    })
+  // async loadProducts() {
+  //   this.productService.getProducts().then(products => {
+  //     products.subscribe(products => {
+  //       this.products = products;
+  //       this.searchProductList = products;
+  //     })
+  //   })
+  // }
+  async loadProducts(){
+    (await this.productService.getProducts()).subscribe((product:any) =>{
+      console.log(product.products);
+      this.products = product;
+      this.searchProductList = this.products;
+    });
+  }
+  onSearch(event: any) {
+    this.searchProductList = this.products.filter(e =>
+      String(e.name).toLowerCase().includes(String(event.target.value).trim().toLowerCase()));
   }
 
 }
