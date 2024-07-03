@@ -34,7 +34,9 @@ export class ProductService {
       "image_url": product.image_url,
       "name": product.name,
       "price": product.price,
+      "category": product.price,
     }).subscribe(data => {
+      console.log(data);
       this.refreshTable.emit(true);
     });
   }

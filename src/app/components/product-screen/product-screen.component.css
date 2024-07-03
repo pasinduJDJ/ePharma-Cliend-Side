@@ -1,7 +1,7 @@
 .menu-grid{
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr  1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr  1fr ;
     row-gap: 30px;
     column-gap: 10px;
     width: 100%;
@@ -19,8 +19,7 @@
     align-items: center;
 }
 .custom-search-bar {
-    width: 70%;
-  margin: 20px auto;
+  width: 100%;
   
 }
 .icon-button {

@@ -105,6 +105,7 @@ export class ProductManageComponent {
       if (this.selectedProduct == null || this.selectedProduct == undefined) {
         await this.productService.addProduct(this.addProductForm?.getRawValue()).then(result => {
           this.addProductForm?.reset();
+          console.log(this.addProductForm?.getRawValue());
           showAlertSuccess("Product Added successfully", "success");
         });
       } else {

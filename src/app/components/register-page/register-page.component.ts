@@ -71,7 +71,7 @@ export class RegisterPageComponent implements OnInit {
     try {
       await this.userService.addUser(this.signUpForm?.getRawValue());
       this.signUpForm?.reset();
-      showAlert("User registered successfully", "success");
+      showAlert("User Register successfully", "success");
 
       await this.emailService.addUserEmail(this.signUpForm?.getRawValue());
       this.signUpForm?.reset();

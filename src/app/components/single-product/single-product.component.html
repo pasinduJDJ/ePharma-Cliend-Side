@@ -11,8 +11,8 @@
           <p class="fs-6">{{ product.description }}</p>
           <p>🚚 FREE SHIPPING</p>
           <p class="fs-5 fw-bold">LKR : {{ product.price }}</p>
-          <div class="col col-4">
-            <a href="#" class="btn btn-primary mb-3 d-block"><i class="fas fa-cart-shopping me-2"></i>Add to Cart</a>
+          <div class="col col-6">
+            <a  class="btn btn-primary mb-3 d-block" (click)="cartService.addToCart(product)"><i class="fas fa-cart-shopping me-2"></i>Add to Cart</a>
           </div>
           <div class="col py-4 box px-4">
             <h5>Uses :</h5>

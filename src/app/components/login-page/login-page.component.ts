@@ -85,7 +85,6 @@ export class LoginPageComponent {
         this.userSerivce.getUsers().then(users => {
           let subscription = users.subscribe(users => {
             myUsers = users.filter(user => (user.username === userName) && (user.password === password));
-
             if (myUsers.length > 0) {
               let myUser = myUsers[0];
               myUser.password = "";
